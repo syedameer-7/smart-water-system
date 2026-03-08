@@ -249,11 +249,18 @@ function startSimulator() {
   }, 5000);
 }
 
+const path = require("path");
+
+// serve frontend
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
+
 app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
   console.log(`Smart Water backend listening on port ${PORT}`);
   if (ENABLE_SIMULATOR) {
     startSimulator();
   }
 });
-
