@@ -14,7 +14,7 @@ export default function StatusCard({ title, value, subtitle, color = 'bg-white',
   }
 
   const dangerClasses = danger
-    ? 'border-red-500 text-red-600 dark:text-red-400'
+    ? 'border-red-500'
     : 'border-slate-200 dark:border-slate-700';
 
   return (
@@ -26,7 +26,7 @@ export default function StatusCard({ title, value, subtitle, color = 'bg-white',
       </div>
 
       {/* VALUE */}
-      <div className={`text-2xl font-bold ${valueColor}`}>
+      <div className={`text-2xl font-bold ${valueColor} !text-current`}>
         {value}
       </div>
 
