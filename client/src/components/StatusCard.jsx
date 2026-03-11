@@ -2,16 +2,10 @@ import React from 'react';
 
 export default function StatusCard({ title, value, subtitle, color = 'bg-white', danger = false }) {
 
-  // determine color based on value
-  let valueColor = 'text-green-500';
-
-  if (
+  const isRed =
     value === 'CLOSED' ||
     value === 'IDLE' ||
-    danger === true
-  ) {
-    valueColor = 'text-red-500';
-  }
+    danger === true;
 
   const dangerClasses = danger
     ? 'border-red-500'
@@ -25,10 +19,11 @@ export default function StatusCard({ title, value, subtitle, color = 'bg-white',
         {title}
       </div>
 
-      {/* VALUE */}
-      <div className={`text-2xl font-bold ${valueColor} !text-current`}>
-        {value}
-      </div>
+      {isRed ? (
+        <div className="text-2xl font-bold text-red-500">{value}</div>
+      ) : (
+        <div className="text-2xl font-bold text-green-500">{value}</div>
+      )}
 
       {subtitle && (
         <div className="text-xs text-slate-500 dark:text-slate-400">
