@@ -12,11 +12,17 @@ export default function StatusCard({ title, value, subtitle, color = 'bg-white',
       <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
         {title}
       </div>
-      <div className="text-2xl font-bold">{value}</div>
+
+      {/* VALUE COLOR CHANGE */}
+      <div className={`text-2xl font-bold ${danger ? 'text-red-500' : 'text-green-500'}`}>
+        {value}
+      </div>
+
       {subtitle && (
-        <div className="text-xs text-slate-500 dark:text-slate-400">{subtitle}</div>
+        <div className="text-xs text-slate-500 dark:text-slate-400">
+          {subtitle}
+        </div>
       )}
     </div>
   );
 }
-
